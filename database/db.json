@@ -1,0 +1,154 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "username": "johndoe",
+      "email": "john.doe@example.com",
+      "password": "newpassword123",
+      "phone": "+243 111 222 333",
+      "profilePicture": "https://example.com/johndoe.jpg",
+      "bio": "Passionate about coding and open source.",
+      "location": "Goma, DRC",
+      "website": "https://johndoe.com",
+      "createdAt": "2023-09-15T08:30:00Z",
+      "followers": 200,
+      "following": 180
+    },
+    {
+      "id": "2",
+      "name": "Alice Doe",
+      "username": "alicedoe",
+      "email": "alice@example.com",
+      "password": "abcdef",
+      "date_of_birth": "",
+      "phone": "+243 987 654 321",
+      "profilePicture": "https://example.com/alice.jpg",
+      "bio": "Designer and artist.",
+      "location": "Lubumbashi, DRC",
+      "website": "https://alicedoe.com",
+      "createdAt": "2023-11-01T09:00:00Z",
+      "followers": 80,
+      "following": 60
+    }
+  ],
+  "tweets": [
+    {
+      "id": "1",
+      "userId": 1,
+      "content": "Hello, this is my first tweet!",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://example.com/image1.jpg"
+        },
+        {
+          "type": "video",
+          "url": "https://example.com/video1.mp4"
+        }
+      ],
+      "likes": 10,
+      "retweets": 5,
+      "replies": [
+        3
+      ],
+      "createdAt": "2023-10-01T12:00:00Z"
+    },
+    {
+      "id": "ddd5",
+      "content": "merci bien",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "2",
+      "media": [],
+      "createdAt": "2025-07-19T21:51:41.113Z"
+    },
+    {
+      "id": "0a1f",
+      "content": "eeeeeee",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "2",
+      "media": [],
+      "createdAt": "2025-07-20T03:55:49.932Z"
+    },
+    {
+      "id": "e646",
+      "content": "ssssssss",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "2",
+      "media": [],
+      "createdAt": "2025-07-20T03:57:06.701Z"
+    },
+    {
+      "id": "6b32",
+      "content": "je suis dispo",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "2",
+      "media": "",
+      "createdAt": "2025-07-20T04:03:08.597Z"
+    },
+    {
+      "id": "dd8a",
+      "content": "ddd",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "2",
+      "media": "",
+      "createdAt": "2025-07-20T04:04:46.642Z"
+    },
+    {
+      "id": "7f08",
+      "content": "dd",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "2",
+      "media": "",
+      "createdAt": "2025-07-20T04:05:50.786Z"
+    },
+    {
+      "id": "6056",
+      "content": "fff",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "2",
+      "media": "",
+      "createdAt": "2025-07-20T04:13:36.897Z"
+    },
+    {
+      "id": "7b4e",
+      "content": "DDDDDDDD",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "2",
+      "media": "",
+      "createdAt": "2025-07-20T10:28:55.088Z"
+    }
+  ]
+}
