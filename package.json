@@ -2,11 +2,12 @@
   "name": "clerk",
   "version": "1.0.0",
   "main": "index.js",
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "start": "json-server --watch database/db.json --port $PORT",
-  "init-data": "node script/init-data.js"
-},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server --watch database/db.json",
+    "start": "json-server --watch database/db.json --port $PORT",
+    "init-data": "node script/init-data.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
