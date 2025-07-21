@@ -60,6 +60,21 @@
       "followers": 0,
       "following": 0,
       "createdAt": "2025-07-20T12:26:51.169Z"
+    },
+    {
+      "id": "a5bf",
+      "name": "",
+      "username": "Etudiant",
+      "email": "mmamarien08@gmail.com",
+      "password": "111",
+      "date_of_birth": "2011-09-16",
+      "profilePicture": "",
+      "bio": "",
+      "location": "",
+      "website": "",
+      "followers": 0,
+      "following": 0,
+      "createdAt": "2025-07-21T19:35:46.522Z"
     }
   ],
   "tweets": [
