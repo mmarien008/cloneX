@@ -30,6 +30,36 @@
       "createdAt": "2023-11-01T09:00:00Z",
       "followers": 80,
       "following": 60
+    },
+    {
+      "id": "33b2",
+      "name": "",
+      "username": "Etudiant",
+      "email": "manimamarien08@gmail.com",
+      "password": "11",
+      "date_of_birth": "2011-09-15",
+      "profilePicture": "",
+      "bio": "",
+      "location": "",
+      "website": "",
+      "followers": 0,
+      "following": 0,
+      "createdAt": "2025-07-20T12:18:47.457Z"
+    },
+    {
+      "id": "7399",
+      "name": "",
+      "username": "manima",
+      "email": "manimamarien08@gmail.com",
+      "password": "123",
+      "date_of_birth": "2009-09-28",
+      "profilePicture": "",
+      "bio": "",
+      "location": "",
+      "website": "",
+      "followers": 0,
+      "following": 0,
+      "createdAt": "2025-07-20T12:26:51.169Z"
     }
   ],
   "tweets": [
@@ -149,6 +179,42 @@
       "userId": "2",
       "media": "",
       "createdAt": "2025-07-20T10:28:55.088Z"
+    },
+    {
+      "id": "051a",
+      "content": "je suis en ligne",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "33b2",
+      "media": "",
+      "createdAt": "2025-07-20T12:20:08.057Z"
+    },
+    {
+      "id": "c2ba",
+      "content": "DDD",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "7399",
+      "media": "",
+      "createdAt": "2025-07-20T12:27:13.956Z"
+    },
+    {
+      "id": "dcf0",
+      "content": "DDD",
+      "likes": 0,
+      "retweets": 0,
+      "replies": [
+        0
+      ],
+      "userId": "7399",
+      "media": "",
+      "createdAt": "2025-07-20T12:27:25.316Z"
     }
   ]
 }
