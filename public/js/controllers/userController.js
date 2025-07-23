@@ -53,7 +53,10 @@ export default class UserController {
     }
 
 
-    static async profile(Elementname, Elementnametwo, Following, Followers, blocktweets) {
+    static async profile(Elementname, Elementnametwo, Following, Followers, blocktweets,IdPhotoProfil) {
+      const photoProfil = document.querySelector(IdPhotoProfil);
+
+      
       // Sélection des éléments du DOM
       const nameElement = document.querySelector(Elementname);
       const nametwoelement = document.querySelector(Elementnametwo);
@@ -68,6 +71,12 @@ export default class UserController {
         // Récupéreration les données utilisateur et les tweets
         const user = await UserModel.ShowUser(userId);
         const tweets = await TweetModel.showTweet(userId);
+
+        console.log(user.profilePicture);
+        photoProfil.style.backgroundImage = `url(${user.profilePicture})`;
+        photoProfil.style.backgroundSize = "cover";
+        photoProfil.style.backgroundPosition = "center";
+        
     
         // Association du nom d'utilisateur à chaque tweet
         const tweetsWithUser = tweets.map(t => ({
@@ -93,7 +102,7 @@ export default class UserController {
                 <span class="font-bold text-white">${tweet.username || 'Nom Utilisateur'}</span>
                 <span class="text-gray-400">@cultureCrave · ${formattedDate}</span>
               </div>
-              <p class="mt-1 text-white">${tweet.content || "Voici un tweet d'exemple avec du contenu textuel."}</p>
+              <p class="mt-1 text-white w-96 break-words">${tweet.content || "Voici un tweet d'exemple avec du contenu textuel."}</p>
               ${tweet.media ? `
                 <div class="mt-2 rounded-xl overflow-hidden">
                   <img src="${tweet.media}" alt="media" class="w-full object-cover" />
@@ -111,10 +120,10 @@ export default class UserController {
         });
     
         // Mise à jour des informations utilisateur dans la page
-        const nomSansEspaces = user.name.replace(/\s+/g, '');
+        const nomSansEspaces = user.username.replace(/\s+/g, '');
         const nomAro = `@${nomSansEspaces}`;
     
-        nameElement.innerHTML = user.name;
+        nameElement.innerHTML = user.username;
         nametwoelement.innerHTML = nomAro;
         following.innerHTML = user.following;
         followers.innerHTML = user.followers;
@@ -122,6 +131,55 @@ export default class UserController {
       } catch (error) {
         console.error("Erreur lors du chargement du profil :", error);
       }
+    }
+    static async Updateprofile(IdPhoto,IdstatutProfil) {
+
+      let imageBase64="";
+
+      const photo = document.querySelector(IdPhoto);
+     
+
+      const userId = JSON.parse(localStorage.getItem('user')).id;
+
+      if (!photo) {
+        imageBase64 = "";
+        suiteDuTraitement(); 
+      } else {
+        const file = photo.files[0];
+      
+        
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            imageBase64 = e.target.result;
+            suiteDuTraitement(); 
+          };
+          reader.readAsDataURL(file);
+        }else{
+          alert("ERREUR")
+        }
+      }
+              //traitement
+              function suiteDuTraitement() {
+           
+                try {
+                  UserModel.UpdateUser(userId,imageBase64);
+                  alert("La photo changee avec succes avec succès !");
+                  window.location.href = "profil.html";
+
+                  
+                } catch (error) {
+                  alert("Erreur lors de la mise a jour du profil : " + error.message);
+                }
+              }
+
+      
+
+      
+
+    
+      //const nameElement = document.querySelector(IdstatutProfil);
+      //nameElement.classList.replace("hidden","none");
     }
     
 }

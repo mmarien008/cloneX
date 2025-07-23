@@ -92,13 +92,25 @@ function router() {
     }
 
   } else if (path.includes("user/profil")) {
+
     // Profil nécessite authentification
     if (!isAuthenticated()) {
       window.location.href = "auth/login.html";
       return;
     }
 
-    UserController.profile('#name', "#namear", "#following", "#followers", "#tweets");
+    //photo de profil prise de la photo de profil
+    uploadBtn.addEventListener('click', async ()=> {
+    fileInput.click();
+    });
+
+    fileInput.addEventListener('change', () => {
+      UserController.Updateprofile("#fileInput", "#uploadStatus");
+    });
+    
+    
+    // affiche info profil
+    UserController.profile('#name', "#namear", "#following", "#followers", "#tweets","#photoProfil");
 
   } else {
     console.log("Page d'accueil ou page inconnue");

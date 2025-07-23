@@ -37,18 +37,17 @@ export default class TweetController {
             alert("Veuillez remplir le champ !");
             return;
           }
-          imageBase64 = "";
-        
+          
           try {
             TweetModel.createTweets(content, userId, imageBase64);
             alert("Le tweet est posté avec succès !");
+            window.location.href = "timeline.html";
+
           } catch (error) {
             alert("Erreur lors de la création : " + error.message);
           }
         }
         
-
-
     }
 
 

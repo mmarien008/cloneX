@@ -43,7 +43,21 @@ export default class UserModel {
         headers: { 'Content-Type': 'application/json' } // data est un objet avec les champs à mettre à jour
       });
   
-      if (!response.ok) throw new Error('Erreur lors de la mise à jour de l\'utilisateur');
+      if (!response.ok) throw new Error('Erreur lors de la reccuperation  de l\'utilisateur');
+  
+      return await response.json();
+    }
+
+    static async UpdateUser(userId,photo) {
+      const response = await fetch(`http://localhost:3000/users/${userId}`, {
+        method: 'PATCH', // ou 'PUT' selon le cas
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            "profilePicture":photo
+          }),
+      });
+  
+      if (!response.ok) throw new Error('Erreur lors de l\'actualisation  de l\'utilisateur');
   
       return await response.json();
     }

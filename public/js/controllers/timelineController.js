@@ -8,13 +8,6 @@ export default class timelineController {
 
     static async showsTweets() {
 
-        // const userJson = localStorage.getItem('user');
-        // if (!userJson) {
-        //     console.error("Aucun utilisateur trouvé dans localStorage.");
-        //     return;
-        // }
-        // const user = JSON.parse(userJson);
-        // console.log(user);
 
         const blockTweets = document.querySelector("#tweets");
 
@@ -48,7 +41,7 @@ export default class timelineController {
                   <span class="font-bold text-white">${tweet.username || 'Nom Utilisateur'}</span>
                   <span class="text-gray-400">@${ 'cultureCrave'} · ${formattedDate } </span>
                 </div>
-                <p class="mt-1 text-white">${tweet.content || "Voici un tweet d'exemple avec du contenu textuel."}</p>
+                <p class="mt-1 text-white w-96 break-words">${tweet.content || "Voici un tweet d'exemple avec du contenu textuel."}</p>
                 ${tweet.media ? `
                 <div class="mt-2 rounded-xl overflow-hidden">
                   <img src="${tweet.media}" alt="media" class="w-full object-cover" />
@@ -71,7 +64,7 @@ export default class timelineController {
         const nameUser = document.querySelector("#nameUser");
         const nameEmail = document.querySelector("#emailUser");
       
-        let nom = JSON.parse(localStorage.getItem('user')).name;
+        let nom = JSON.parse(localStorage.getItem('user')).username;
         let email = JSON.parse(localStorage.getItem('user')).email;
       
         nameUser.innerHTML=nom.toString();
