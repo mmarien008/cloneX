@@ -5,9 +5,9 @@ import TweetModel from '../model/tweetsModel.js';
 
 export default class TweetController {
 
-
     static async create(contentId,userId,photoId) {
 
+      
         // reccuperation des champs
         const content = document.querySelector(contentId).value.trim();
 
@@ -15,8 +15,7 @@ export default class TweetController {
 
         let photo = document.querySelector(photoId);
     
-        if (!photo) {
-          imageBase64 = "";
+        if (!photo || !photo.files || photo.files.length === 0) {
           suiteDuTraitement(); 
         } else {
           const file = photo.files[0];

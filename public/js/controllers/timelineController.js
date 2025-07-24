@@ -17,11 +17,10 @@ export default class timelineController {
         const usersById = {};
         users.forEach(u => { usersById[u.id] = u });
  
-      
         const tweetsWithUser = tweets.map(t => {
           const u = usersById[t.userId] || {};
 
-          return { ...t,username: u.username };
+          return { ...t,username: u.username,photo:u.profilePicture };
         });
 
    
@@ -35,7 +34,10 @@ export default class timelineController {
             tweetDiv.className = "border-b flex p-4 border-b border-gray-700";
           
             tweetDiv.innerHTML = `
-              <div class="w-12 h-12 rounded-full bg-gray-500 mr-3"></div>
+              <div
+                class="w-12 h-12 rounded-full bg-gray-500 mr-3"
+                style="background-image: url('${tweet.photo}'); background-size: cover; background-position: center;">
+              </div>
               <div class="flex-1 flex flex-col">
                 <div class="flex gap-2 text-sm">
                   <span class="font-bold text-white">${tweet.username || 'Nom Utilisateur'}</span>
@@ -60,17 +62,37 @@ export default class timelineController {
     }
 
 
-    static showName() {
+    static async  showName(){
+      
+      
+      const photoPlusElement = document.querySelector("#photoPlus");
         const nameUser = document.querySelector("#nameUser");
         const nameEmail = document.querySelector("#emailUser");
+
+        const userId = JSON.parse(localStorage.getItem('user')).id;
+    
+        // Récupéreration les données utilisateur et les tweets
+        const user = await UserModel.ShowUser(userId);
       
-        let nom = JSON.parse(localStorage.getItem('user')).username;
-        let email = JSON.parse(localStorage.getItem('user')).email;
+        let nom = user.username;
+        let email = user.email;
+        let photoInit=user.profilePicture
+        let photoPlus=user.profilePicture;
+
+
+        const photoInitiateur = document.querySelector("#photoInitiateur");
+        photoInitiateur.style.backgroundImage = `url(${photoInit})`;
+        photoInitiateur.style.backgroundSize = "cover";
+        photoInitiateur.style.backgroundPosition = "center";
+
+        
+        photoPlusElement.style.backgroundImage = `url(${photoInit})`;
+        photoPlusElement.style.backgroundSize = "cover";
+        photoPlusElement.style.backgroundPosition = "center";
       
         nameUser.innerHTML=nom.toString();
         nameEmail.innerHTML=email.toString();
-      
-        let photo = "";
+     
       
     }
 

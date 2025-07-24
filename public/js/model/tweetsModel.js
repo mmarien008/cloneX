@@ -10,7 +10,6 @@ export default class TweetModel {
       console.log(data);
       
       return data;
-  
     }
 
   

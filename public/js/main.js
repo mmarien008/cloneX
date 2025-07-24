@@ -28,14 +28,21 @@ function router() {
       });
     }
 
-    // Création d'un nouveau tweet
+    // Création d'un nouveau tweet avec la photo
     const formCreate = document.querySelector("#createTweet-form");
+    const uploadBtnT = document.querySelector("#uploadBtnT");
+    const imageInputT = document.querySelector("#imageInputT");
     if (formCreate) {
+      uploadBtnT.addEventListener('click', async ()=> {
+        imageInputT.click();
+        });
+    
       formCreate.onsubmit = async (e) => {
         e.preventDefault();
         try {
           const userId = JSON.parse(localStorage.getItem('user')).id;
-          TweetController.create('#content', userId,"#imageInput");
+          TweetController.create('#content', userId,"#imageInputT");
+          
         } catch (error) {
           console.error(error);
         }
@@ -75,10 +82,10 @@ function router() {
 
   } else if (path.includes("user/create")) {
     // Si déjà connecté, rediriger vers timeline
-    if (isAuthenticated()) {
-      window.location.href = "../timeline.html";
-      return;
-    }
+    // if (isAuthenticated()) {
+    //   window.location.href = "../timeline.html";
+    //   return;
+    // }
 
     // Pré-remplissage date sur la page création compte
     remplissageDate();
